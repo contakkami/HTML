@@ -1,0 +1,33 @@
+{% if paginator.total_pages > 1 %}
+<div class="pagination">
+  {% if paginator.previous_page %}
+  <a class="ml-1 mr-1" href="{{ paginator.previous_page_path | replace: '//', '/' }}" title="Prev" aria-label="Prev">
+    Prev
+  </a>
+  {% else %}
+  <a class="ml-1 mr-1" href="#" onclick="return false;" title="Prev" aria-label="Prev">Prev</a>
+  {% endif %}
+  {% for page in (1..paginator.total_pages) %}
+  {% if page == paginator.page %}
+  <span class="ml-1 mr-1 active">
+    {{ page }}
+  </span>
+  {% elsif page == 1 %}
+  <a class="ml-1 mr-1" href="{{ paginator.previous_page_path | replace: '//', '/' }}" title="{{ page }}" aria-label="{{ page }}">
+    {{ page }}
+  </a>
+  {% else %}
+  <a class="ml-1 mr-1" href="{{ site.paginate_path | replace: '//', '/' | replace: ':num', page }}" title="{{ page }}" aria-label="{{ page }}">
+    {{ page }}
+  </a>
+  {% endif %}
+  {% endfor %}
+  {% if paginator.next_page %}
+  <a class="ml-1 mr-1" href="{{ paginator.next_page_path | replace: '//', '/' }}" title="Next" aria-label="Next">
+    Next
+  </a>
+  {% else %}
+  <a class="ml-1 mr-1" href="#" onclick="return false;" title="Next" aria-label="Next">Next</a>
+  {% endif %}
+</div>
+{% endif %}

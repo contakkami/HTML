@@ -1,0 +1,33 @@
+---
+layout: default
+---
+<section>
+    <div class="section-title">
+        <h2><span>{{ page.title }}</span></h2>
+    </div>
+    <div class="article-post">
+        {{content}}
+    </div>
+</section>
+<!-- Begin Schema BreadcrumbList -->
+<script type='application/ld+json'>
+    {
+        "@context": "http://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+            "@type": "ListItem",
+            "position": "1",
+            "name": "Home",
+            "item": "{{ site.url }}/"
+        },
+        {
+            "@type": "ListItem",
+            "position": "2",
+            "name": "{{ page.title }}",
+            "item": "{{ site.url }}{{ page.url }}"
+        }
+        ]
+    }
+</script>
+<!-- End Schema BreadcrumbList -->

@@ -1,0 +1,17 @@
+<!-- Begin Footer-->
+<footer class="footer" itemscope="itemscope" itemtype="https://schema.org/WPFooter">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 text-center">
+                Copyright © <span itemprop="copyrightYear">{{ site.time | date: "%Y" }}</span> - 
+                <span itemprop="copyrightHolder" itemscope="itemscope" itemtype="https://schema.org/Organization">
+                    <a href="/" itemprop="url" title="{{ site.name }}">
+                        <span itemprop="name">{{ site.name }}</span>
+                    </a> - All Rights Reserved.
+                </span>
+                {% include social.html %}
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer -->

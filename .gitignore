@@ -1,0 +1,22 @@
+_site
+.DS_Store
+*.swp
+.sass-cache
+*~
+.vscode
+._*
+node_modules
+.jekyll-cache
+package-lock.json
+_includes/._*
+_layouts/._*
+_pages/._*
+_post/._*
+_sass/._*
+site/._*
+static/._*
+static/media/._*
+.user.ini
+
+# Local Netlify folder
+.netlify

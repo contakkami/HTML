@@ -1,0 +1,52 @@
+{
+    "name": "Tuan Duc Design",
+    "short_name": "Tuan Duc Design",
+    "description": "Specialist page sharing knowledge related to VPS development and Website optimization",
+    "lang": "en-US",
+    "start_url": "https://tuanducdesign.com/",
+    "display": "standalone",
+    "icons": [
+      {
+        "src": "/static/apple-touch-icon-57x57.png",
+        "sizes": "57x57",
+        "type": "image/png"
+      },
+      {
+        "src": "/static/apple-touch-icon-72x72.png",
+        "sizes": "72x72",
+        "type": "image/png"
+      },
+      {
+        "src": "/static/apple-touch-icon-76x76.png",
+        "sizes": "76x76",
+        "type": "image/png"
+      },
+      {
+        "src": "/static/apple-touch-icon-114x114.png",
+        "sizes": "114x114",
+        "type": "image/png"
+      },
+      {
+        "src": "/static/apple-touch-icon-120x120.png",
+        "sizes": "120x120",
+        "type": "image/png"
+      },
+      {
+        "src": "/static/apple-touch-icon-144x144.png",
+        "sizes": "144x144",
+        "type": "image/png"
+      },
+      {
+        "src": "/static/apple-touch-icon-152x152.png",
+        "sizes": "152x152",
+        "type": "image/png"
+      },
+      {
+        "src": "/static/apple-touch-icon-180x180.png",
+        "sizes": "180x180",
+        "type": "image/png"
+      }
+    ],
+    "background_color": "#fe2c55",
+    "theme_color": "#fe2c55"
+  }

@@ -1,0 +1,18 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "Jekyll blog used framework CSS Bootstrap",
+  "scripts": {
+    "dev": "jekyll server",
+    "clean": "jekyll clean",
+    "product": "jekyll build",
+    "bundle": "bundle install"
+  },
+  "main": "index.html",
+  "repository": "https://github.com/tuanducteam/blog",
+  "author": "Tuan Duc Design <nguoisoidangyeu@outlook.com.vn>",
+  "license": "MIT",
+  "dependencies": {
+    "turbolinks": "^5.2.0"
+  }
+}

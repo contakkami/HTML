@@ -1,0 +1,178 @@
+---
+layout: default
+post_class: post-template
+---
+<!-- Begin Article -->
+<article class="container">
+    <div class="row">
+        <!-- Post -->
+        {% assign author = site.authors[page.author] %}
+        {% assign sortedCategories = page.categories | sort %}
+        <div class="col-md-12 flex-first flex-md-unordered">
+            <div class="mainheading text-center">
+                <!-- Post Title -->
+                <h2 class="posttitle">
+                    {{ page.title }}
+                </h2>
+                <p>
+                <!-- Post Author -->
+                {% if page.author %}
+                <span class="post-author">
+                    <a class="link-dark" href="/author/{{ author.username }}" title="{{ author.display_name }}" rel="author">
+                        {{ author.display_name }}
+                    </a>
+                </span>
+                {% endif %}
+                <span class="dot"></span>
+                <!-- Post Date -->
+                <span class="post-date">
+                    <time datetime="{{ page.date | date:"%Y-%m-%d" }}">
+                        {{ page.date | date_to_string }}
+                    </time>
+                </span>           
+                {% if page.last_modified_at %}
+                <span class="dot"></span>
+                <!-- Post Updated -->
+                (Updated: <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">
+                    {{ page.last_modified_at | date: "%b %-d, %Y" }}
+                </time>)
+                {% endif %}
+                <span class="dot"></span>
+                <!-- Post Read -->
+                <span class="post-read eta"></span>
+                <span class="dot"></span>
+                <!-- Post Cat -->
+                <span class="post-cat">
+                    {% for category in sortedCategories %}
+                    <a class="link-dark" href="/categories#{{ category | replace: " ","-" }}" title="{{ category }}" rel="tag">
+                    {{ category }}
+                    </a>
+                    {% endfor %}
+                </span>
+                </p>
+            </div>
+            <!-- Post Content -->
+            <div class="mt-4 mb-4 article-post">
+                {% include share.html %}
+                <!-- Toc if any -->
+                {% if page.toc %}
+                    {% if page.beforetoc %}
+                        <p><em>{{page.beforetoc}}</em></p>
+                    {% endif %}
+                    <div class="toc mt-4 mb-4 lead">
+                        <h3 class="font-weight-bold">Table of Contents</h3>
+                        {% include toc.html html=content %}
+                    </div>
+                {% endif %}
+                <!-- End Toc -->
+                {{content}}
+            <!-- Rating -->
+            {% if page.rating %}
+            <div class="rating mb-4 d-flex align-items-center">
+                <strong class="mr-1">
+                    Rating by author:
+                </strong> 
+                {% include star_rating.html %}
+            </div>
+            {% endif %}
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    {% assign sortedTags = page.tags | sort %}
+                    {% for tag in sortedTags %}
+                    <li>
+                        <a class="smoothscroll" href="/tags#{{ tag | replace: " ","-" }}" title="{{ tag }}" rel="tag">
+                            {{ tag }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <!-- End Tags -->
+            <!-- Prev/Next -->
+            <div class="PageNavigation">
+            {% if page.previous.url %}
+            <a href="{{page.previous.url}}" rel="prev" class="btn prev-post" title="{{page.previous.title}}" aria-label="{{page.previous.title}}">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                  </svg>
+			</a>
+            {% endif %}
+            {% if page.next.url %}
+            <a href="{{page.next.url}}" rel="next" class="btn next-post" title="{{page.next.title}}" aria-label="{{page.next.title}}">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                  </svg>
+			</a>
+            {% endif %}
+            </div>
+            <!-- Begin Comments -->
+            {% if site.disquscmt == "enabled" %}
+            <div id="comments" class="justify-content-center mb-5">
+                {% include disqus.html %}
+            </div>
+            {% else %}
+            <div id="comments" class="justify-content-center mb-5">
+                {% for alertcmt in site.notification_cmt %}
+                <div class="alert alert-warning" role="alert">
+                    {{alertcmt.name}}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <!--End Comments -->
+            </div>
+        </div>
+        <!-- End Post -->
+    </div>
+</article>
+<!-- End Article -->
+<!-- Begin Schema BreadcrumbList -->
+<script type='application/ld+json'>
+    {
+        "@context": "http://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+            "@type": "ListItem",
+            "position": "1",
+            "name": "Home",
+            "item": "{{ site.url }}/"
+        },
+        {
+            "@type": "ListItem",
+            "position": "2",
+            "name": "{{ page.title }}",
+            "item": "{{ site.url }}{{ page.url }}"
+        }
+        ]
+    }
+</script>
+<!-- End Schema BreadcrumbList -->
+{% if page.rating %}
+<!-- Begin Schema Rating Product -->
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org/",
+      "@type": "Product",
+      "name": "{{ page.title }}",
+      "image": "{{ site.url }}/{{ page.image }}",
+      "description": "{{ page.description }}",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "VND",
+        "price": "0.00",
+        "url": "{{ site.url }}/{{ page.url }}"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue" : "{{ page.rating }}",
+        "ratingCount" : "1",
+        "reviewCount" : "1",
+        "worstRating" : "1",
+        "bestRating" : "5"
+      }
+    }
+</script>
+<!-- End Schema Rating Product -->
+{% endif %}

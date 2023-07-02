@@ -1,0 +1,151 @@
+---
+name: Tuan Duc Design
+title: Tuan Duc Design
+subtitle: Share your experience of optimizing VPS and Website
+description: Specialist page sharing knowledge related to VPS development and Website
+  optimization.
+cdn: "disabled"
+cdn-url: "https://cdn.tuanducdesign.com"
+logo: /static/tuanducdesign.jpg
+favicon: /static/tuanducdesign.jpg
+apple-touch-icon: /static/tuanducdesign.jpg
+apple-touch-icon-57x57: /static/apple-touch-icon-57x57.png
+apple-touch-icon-72x72: /static/apple-touch-icon-72x72.png
+apple-touch-icon-76x76: /static/apple-touch-icon-76x76.png
+apple-touch-icon-114x114: /static/apple-touch-icon-114x114.png
+apple-touch-icon-120x120: /static/apple-touch-icon-120x120.png
+apple-touch-icon-144x144: /static/apple-touch-icon-144x144.png
+apple-touch-icon-152x152: /static/apple-touch-icon-152x152.png
+apple-touch-icon-180x180: /static/apple-touch-icon-180x180.png
+url: https://tuanducdesign.com
+analytics: "enabled"
+google_analytics: G-JLS45PZZXS
+disquscmt: "disabled"
+disqus: tuanducdesign
+facebook:
+  app_id: "294587991860787"
+  publisher: "https://www.facebook.com/121349286117840"
+  admins: "100005485267478"
+chat: "enabled"
+fanpage-chat: "121349286117840"
+permalink: "/:year/:month/:title/"
+twitter:
+  username: tuanducdesign
+  card: summary_large_image
+social:
+  name: Tuan Duc Design
+  links:
+  - https://twitter.com/tuanducdesign
+  - https://www.facebook.com/tuanduc.support
+  - https://www.instagram.com/mi.profile.56
+  - https://github.com/tuanducdesign
+defaults:
+- scope:
+    path: ''
+  values:
+    image: "/static/CA0E67E9-AAD0-4D36-82D8-674C7504DFD1.jpg"
+timezone: Asia/Ho_Chi_Minh
+authors:
+  tuanducdesign:
+    name: Tuan Duc Design
+    username: tuanducdesign
+    display_name: Tuan Duc Design
+    photo: /static/tuanducdesign.jpg
+    email: miumiu.official.56@gmail.com
+    web: https://tuanducdesign.com
+    facebook: tuanduc.support
+    twitter: tuanducdesign
+    instagram: mi.profile.56
+    description: Ask me about Optimize Website, Install VPS, Hosting Selection...
+plugins:
+- jekyll-paginate
+- jekyll-sitemap
+- jekyll-feed
+- jekyll-seo-tag
+- jekyll-archives
+- jekyll-include-cache
+jekyll-archives:
+  enabled:
+  - categories
+  layout: archive
+  permalinks:
+    category: "/cat/:name/"
+paginate: "12"
+paginate_path: "/page/:num"
+adsense: enabled
+adsense-data-ad-client: "ca-pub-4183134625750063"
+adsense-data-ad-slot: "5639974067"
+lazyimages: enabled
+sass:
+  style: compressed
+include:
+#- ".htaccess"
+#- "nginx.conf"
+- settings
+- _pages
+- manifest.json
+- ads.txt
+exclude:
+- changelog.md
+- LICENSE.txt
+- README.md
+- Gemfile
+- Gemfile.lock
+- ".jekyll-cache"
+- package.json
+keep_files:
+- static
+notification_cmt:
+  - name: The blog is currently closed for commenting because I need to focus on updating the article. Comments will stay open until I'm ready.
+top_articles: 
+  - url: /2021/01/cai-dat-module-pagespeed-len-may-chu-nginx/
+    title: Cài đặt Module PageSpeed lên máy chủ Nginx
+    category: Server
+  - url: /2021/01/huong-dan-su-dung-thu-vien-deferjs-cua-mai-nhut-tan/
+    title: Hướng Dẫn Sử Dụng Thư Viện DeferJS của Mai Nhựt Tân
+    category: Library
+  - url: /2021/02/bo-ba-thu-vien-than-thanh-giup-website-toi-uu/
+    title: Bộ Ba Thư Viện Thần Thánh Giúp Website Tối Ưu
+    category: Library
+  - url: /series-nextdns/
+    title: Series hướng dẫn sử dụng NextDNS
+    category: Series
+regenerate: true
+incremental: true
+  ############################################################
+# Site configuration for the WebP Generator Plugin
+# The values here represent the defaults if nothing is set
+webp:
+  enabled: true
+  
+  # The quality of the webp conversion 0 to 100 (where 100 is least lossy)
+  quality: 75
+
+  # List of directories containing images to optimize, nested directories will only be checked if `nested` is true
+  # By default the generator will search for a folder called `/img` under the site root and process all jpg, png and tiff image files found there.
+  img_dir: ["/static/media"]
+
+  # Whether to search in nested directories or not
+  nested: false
+
+  # add ".gif" to the format list to generate webp for animated gifs as well
+  formats: [".jpeg", ".jpg", ".png", ".tiff"]
+
+  # File extensions for animated gif files 
+  gifs: [".gif"]
+
+  # Set to true to always regenerate existing webp files
+  regenerate: false
+
+  # Local path to the WebP utilities to use (relative or absolute)
+  # Omit or leave as nil to use the utilities shipped with the gem, override only to use your local install
+  webp_path: nil
+
+  # List of files or directories to exclude
+  # e.g. custom or hand generated webp conversion files
+  exclude: []
+
+  # append '.webp' to filename after original extension rather than replacing it.
+  # Default transforms `image.png` to `image.webp`, while changing to true transforms `image.png` to `image.png.webp`
+  append_ext: true
+############################################################
